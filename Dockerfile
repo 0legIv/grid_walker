@@ -41,15 +41,12 @@ RUN \
 
 FROM bitwalker/alpine-erlang:23.1.2
 
-ARG APP_NAME=grid_walker
-
 RUN apk update && \
     apk add --no-cache \
       bash \
       openssl-dev
 
-ENV REPLACE_OS_VARS=true \
-    APP_NAME=${APP_NAME}
+ENV REPLACE_OS_VARS=true
 
 WORKDIR /opt/app
 
@@ -57,4 +54,4 @@ EXPOSE 4000
 
 COPY --from=builder /opt/built .
 
-CMD trap 'exit' INT; /opt/app/bin/${APP_NAME} console
+CMD trap 'exit' INT; /opt/app/bin/grid_walker foreground

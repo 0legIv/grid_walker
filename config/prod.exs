@@ -1,9 +1,9 @@
 use Mix.Config
 
 config :grid_walker, GridWalkerWeb.Endpoint,
-  http: [:inet6, port: 4000],
-  url: [host: "${HOST}", port: 4000],
-  code_reloader: false,
+  http: [port: {:system, "PORT"}],
+  url: [host: "grid-walker-app.herokuapp.com", port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true
 
