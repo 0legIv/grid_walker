@@ -1,0 +1,30 @@
+<div>Player <%= @current_player_name %></div>
+<canvas id="grid" data-players=<%= @players %> width=800 height=800 style="border:1px solid #000000;"></canvas>
+<div class="actions">
+  <%= button("Left", to: Routes.game_path(@conn, :operation, operation: "left", current_player_name: @current_player_name, method: :post), class: "action") %>
+  <%= button("Down", to: Routes.game_path(@conn, :operation, operation: "down", current_player_name: @current_player_name, method: :post), class: "action") %>
+  <%= button("Up", to: Routes.game_path(@conn, :operation, operation: "up", current_player_name: @current_player_name, method: :post), class: "action") %>
+  <%= button("Right", to: Routes.game_path(@conn, :operation, operation: "right", current_player_name: @current_player_name, method: :post), class: "action") %>
+  <%= button("Attack", to: Routes.game_path(@conn, :operation, operation: "attack", current_player_name: @current_player_name, method: :post), class: "action") %>
+</div>
+<script>
+  window.onload = function() {
+    var players = $('#grid').data('players');
+    var ctx = document.getElementById('grid').getContext('2d');
+    console.log(players);
+    for(var i = 0; i < players.length; i++) {
+      ctx.beginPath();
+      console.log(players[i]);
+      ctx.fillStyle = '#' + players[i].color;
+      ctx.fillRect(players[i].position.x * 100, players[i].position.y * 100, 100, 100);
+      ctx.fillStyle = '#000000';
+      ctx.font = "30px Verdana";
+      ctx.fillText(players[i].name, players[i].position.x * 100 + 5, players[i].position.y * 100 + 50);
+      ctx.closePath();
+    }
+    setTimeout(function(){
+      window.location.reload(1);
+    }, 1000);
+    
+  }
+</script>

@@ -7,16 +7,16 @@
 # General application configuration
 use Mix.Config
 
-config :grid_walker,
-  ecto_repos: [GridWalker.Repo]
-
 # Configures the endpoint
 config :grid_walker, GridWalkerWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "4KF/yxRRRBCh5RrcYRq0+xzmIME545Lyhjn1FssgeHWPA08eztV+EpgPKe9KpHfz",
+  secret_key_base: "GgXo0SwLtvX9NGjiREn+oPpC6Hd5uYNMocSw+7f4Hn8wLpltNaZGR0RXpqoMH4qZ",
   render_errors: [view: GridWalkerWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: GridWalker.PubSub,
-  live_view: [signing_salt: "jy4TrOeb"]
+  live_view: [signing_salt: "BVcQlhfK"]
+
+config :grid_walker,
+  grid_size: {8, 8}
 
 # Configures Elixir's Logger
 config :logger, :console,

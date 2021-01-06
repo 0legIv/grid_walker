@@ -1,14 +1,5 @@
 use Mix.Config
 
-# Configure your database
-config :grid_walker, GridWalker.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "grid_walker_dev",
-  hostname: "localhost",
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
-
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -59,7 +50,6 @@ config :grid_walker, GridWalkerWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
       ~r"lib/grid_walker_web/(live|views)/.*(ex)$",
       ~r"lib/grid_walker_web/templates/.*(eex)$"
     ]

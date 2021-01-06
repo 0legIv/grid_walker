@@ -30,13 +30,6 @@ defmodule GridWalkerWeb.Telemetry do
         unit: {:native, :millisecond}
       ),
 
-      # Database Metrics
-      summary("grid_walker.repo.query.total_time", unit: {:native, :millisecond}),
-      summary("grid_walker.repo.query.decode_time", unit: {:native, :millisecond}),
-      summary("grid_walker.repo.query.query_time", unit: {:native, :millisecond}),
-      summary("grid_walker.repo.query.queue_time", unit: {:native, :millisecond}),
-      summary("grid_walker.repo.query.idle_time", unit: {:native, :millisecond}),
-
       # VM Metrics
       summary("vm.memory.total", unit: {:byte, :kilobyte}),
       summary("vm.total_run_queue_lengths.total"),

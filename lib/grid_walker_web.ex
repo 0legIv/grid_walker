@@ -22,7 +22,6 @@ defmodule GridWalkerWeb do
       use Phoenix.Controller, namespace: GridWalkerWeb
 
       import Plug.Conn
-      import GridWalkerWeb.Gettext
       alias GridWalkerWeb.Router.Helpers, as: Routes
     end
   end
@@ -54,7 +53,6 @@ defmodule GridWalkerWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import GridWalkerWeb.Gettext
     end
   end
 
@@ -67,7 +65,6 @@ defmodule GridWalkerWeb do
       import Phoenix.View
 
       import GridWalkerWeb.ErrorHelpers
-      import GridWalkerWeb.Gettext
       alias GridWalkerWeb.Router.Helpers, as: Routes
     end
   end

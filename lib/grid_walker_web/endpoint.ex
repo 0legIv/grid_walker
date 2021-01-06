@@ -7,14 +7,12 @@ defmodule GridWalkerWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_grid_walker_key",
-    signing_salt: "9ntn4U4D"
+    signing_salt: "uW5vSd2y"
   ]
 
   socket "/socket", GridWalkerWeb.UserSocket,
     websocket: true,
     longpoll: false
-
-  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -32,12 +30,7 @@ defmodule GridWalkerWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :grid_walker
   end
-
-  plug Phoenix.LiveDashboard.RequestLogger,
-    param_key: "request_logger",
-    cookie_key: "request_logger"
 
   plug Plug.RequestId
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]

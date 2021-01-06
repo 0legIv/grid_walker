@@ -7,10 +7,9 @@ defmodule GridWalker.Application do
 
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      GridWalker.Repo,
       # Start the Telemetry supervisor
       GridWalkerWeb.Telemetry,
+      GridWalker.Game,
       # Start the PubSub system
       {Phoenix.PubSub, name: GridWalker.PubSub},
       # Start the Endpoint (http/https)
