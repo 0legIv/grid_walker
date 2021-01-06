@@ -53,6 +53,8 @@ ENV REPLACE_OS_VARS=true \
 
 WORKDIR /opt/app
 
+EXPOSE 4000
+
 COPY --from=builder /opt/built .
 
 CMD trap 'exit' INT; /opt/app/bin/${APP_NAME} console
