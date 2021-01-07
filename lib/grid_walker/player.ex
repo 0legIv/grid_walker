@@ -14,7 +14,7 @@ defmodule GridWalker.Player do
     color = random_color()
 
     state = %{
-      name: args[:name] || random_name(),
+      name: set_name(args[:name]),
       saved_color: color,
       current_color: color,
       position: args[:position] || random_position(grid_size, @walls),
@@ -120,6 +120,8 @@ defmodule GridWalker.Player do
 
   defp random_color(), do: Enum.random(111_111..999_999)
 
-  defp random_name(),
-    do: "player_" <> Enum.random(1..1000)
+  defp set_name(name) when name in ["", nil],
+    do: "player_#{Enum.random(1..10)}#{Enum.random(1..10)}"
+
+  defp set_name(name), do: name
 end

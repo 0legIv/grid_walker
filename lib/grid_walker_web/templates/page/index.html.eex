@@ -1,7 +1,7 @@
 
 <section class="row">
   <%= form_for @conn, Routes.game_path(@conn, :create), fn f -> %>
-    <%= text_input f, :current_player_name, placeholder: "Enter player name", required: true %>
+    <%= text_input f, :current_player_name, placeholder: "Enter player name" %>
     <%= submit("Start game", class: "pw-btn") %>
   <% end %>
   

@@ -18,7 +18,7 @@
       ctx.fillStyle = '#' + players[i].color;
       ctx.fillRect(players[i].position.x * 100, players[i].position.y * 100, 100, 100);
       ctx.fillStyle = '#000000';
-      ctx.font = "30px Verdana";
+      ctx.font = "16px Verdana";
       ctx.fillText(players[i].name, players[i].position.x * 100 + 5, players[i].position.y * 100 + 50);
       ctx.closePath();
     }

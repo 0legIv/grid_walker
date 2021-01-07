@@ -6,7 +6,9 @@ defmodule GridWalkerWeb.GameController do
   def create(conn, params) do
     Game.add_player(params["current_player_name"])
 
-    redirect(conn,
+    conn
+    |> put_flash(:info, "Player created")
+    |> redirect(
       to: Routes.game_path(conn, :index, current_player_name: params["current_player_name"])
     )
   end
